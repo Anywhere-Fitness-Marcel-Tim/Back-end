@@ -1,0 +1,45 @@
+{
+  "name": "back-end",
+  "version": "1.0.0",
+  "description": "Anywhere fitness back-end server",
+  "main": "index.js",
+  "scripts": {
+    "test": "cross-env NODE_ENV=testing jest --verbose --runInBand",
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "migrate": "knex migrate:latest",
+    "rollback": "knex migrate:rollback",
+    "seed": "knex seed:run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anywhere-Fitness-Marcel-Tim/Back-end.git"
+  },
+  "keywords": [
+    "anywhere",
+    "fitness"
+  ],
+  "author": "Marcel and tim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Anywhere-Fitness-Marcel-Tim/Back-end/issues"
+  },
+  "homepage": "https://github.com/Anywhere-Fitness-Marcel-Tim/Back-end#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "helmet": "^5.0.2",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.95.14",
+    "morgan": "^1.10.0",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "eslint": "^8.10.0",
+    "jwt-decode": "^3.1.2",
+    "nodemon": "^2.0.15"
+  }
+}
