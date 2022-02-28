@@ -2,7 +2,10 @@ const router = require('express').Router()
 const classModel = require('./classes-model')
 
 router.get('/', (req, res, next) => {
-    res.status(200).json({message: 'Classses router /'})
+    classModel.find()
+    .then(classes => {
+        res.status(200).json(classes)
+    }).catch(next)
 })
 
 module.exports = router

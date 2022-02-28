@@ -1,7 +1,7 @@
 const db = require('../../data/db-config')
 
 function find() {
-    return db('classes')
+    return db('classes as class')
 }
 
 module.exports = {
