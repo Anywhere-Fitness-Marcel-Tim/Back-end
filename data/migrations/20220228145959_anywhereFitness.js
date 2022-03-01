@@ -10,7 +10,7 @@ exports.up = function(knex) {
     .createTable('classes', classes => {
         classes.increments('class_id')
         classes.string('class_type', 64).notNullable()
-        classes.integer('class_price').notNullable()
+        classes.float('class_price').notNullable()
         classes.string('class_location', 255).notNullable()
         classes.string('class_intensity', 64).notNullable()
         classes.integer('class_max_size').notNullable()
@@ -28,6 +28,19 @@ exports.up = function(knex) {
         .notNullable()
         .references('role_id')
         .inTable('roles')
+        .onUpdate('CASCADE')
+        .onDelete('CASCADE')
+    })
+    .createTable('orders', orders => {
+        orders.increments('order_id')
+        orders.string('order_content', 255)
+        orders.integer('order_quantity')
+        orders.float('order_price_total')
+        orders.integer('user_id')
+        .unsigned()
+        .notNullable()
+        .references('user_id')
+        .inTable('users')
         .onUpdate('CASCADE')
         .onDelete('CASCADE')
     })
@@ -53,6 +66,7 @@ exports.up = function(knex) {
 exports.down = function(knex) {
   return knex.schema
     .dropTableIfExists('class_organizer')
+    .dropTableIfExists('orders')
     .dropTableIfExists('users')
     .dropTableIfExists('classes')
     .dropTableIfExists('roles')

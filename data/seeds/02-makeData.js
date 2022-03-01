@@ -23,6 +23,12 @@ const users = [
 
 ]
 
+const orders = [
+    {order_content: 'Public_Training', order_quantity: 1, order_price_total: 24.95, user_id: 1},
+    {order_content: 'Private_Training', order_quantity: 1, order_price_total: 34.95, user_id: 3},
+    {order_content: 'Public_Training', order_quantity: 1, order_price_total: 15, user_id: 2},
+]
+
 const class_organizer = [
     {user_id: 2, class_id: 1},
     {user_id: 3, class_id: 1},
@@ -41,5 +47,6 @@ exports.seed = async function(knex){
     await knex('roles').insert(roles)
     await knex('classes').insert(classes)
     await knex('users').insert(users)
+    await knex('orders').insert(orders)
     await knex('class_organizer').insert(class_organizer)
 }
