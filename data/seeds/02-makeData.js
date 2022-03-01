@@ -11,15 +11,19 @@ const classes = [
 ]
 
 const users = [
-    {username: 'bob', password: 'bob123', user_email: 'bob@aol.com', role_id: 1},
-    {username: 'pat', password: 'pat123', user_email: 'pat@aol.com', role_id: 1},
-    {username: 'mary', password: 'mary123', user_email: 'mary@aol.com', role_id: 1},
+    {username: 'bob', password: '$2a$08$oEuinZFfMxk9Z9Uwvjhyce2nVAK/WXL.kLjQ45lkV02X/8g9.6SiC', user_email: 'bob@aol.com', role_id: 1},
+    {username: 'pat', password: '$2a$08$oEuinZFfMxk9Z9Uwvjhyce2nVAK/WXL.kLjQ45lkV02X/8g9.6SiC', user_email: 'pat@aol.com', role_id: 1},
+    {username: 'mary', password: '$2a$08$oEuinZFfMxk9Z9Uwvjhyce2nVAK/WXL.kLjQ45lkV02X/8g9.6SiC', user_email: 'mary@aol.com', role_id: 1},
+    {username: 'demo', password: '$2a$08$oEuinZFfMxk9Z9Uwvjhyce2nVAK/WXL.kLjQ45lkV02X/8g9.6SiC', user_email: 'demo@aol.com', role_id: 1},
 
-    {username: 'james', password: 'james123', user_email: 'james@aol.com', role_id: 2},
-    {username: 'katrina', password: 'katrina123', user_email: 'katrina@aol.com', role_id: 2},
-    {username: 'alex', password: 'alex123', user_email: 'alex@aol.com', role_id: 2},
+    {username: 'james', password: '$2a$08$oEuinZFfMxk9Z9Uwvjhyce2nVAK/WXL.kLjQ45lkV02X/8g9.6SiC', user_email: 'james@aol.com', role_id: 2},
+    {username: 'katrina', password: '$2a$08$oEuinZFfMxk9Z9Uwvjhyce2nVAK/WXL.kLjQ45lkV02X/8g9.6SiC', user_email: 'katrina@aol.com', role_id: 2},
+    {username: 'alex', password: '$2a$08$oEuinZFfMxk9Z9Uwvjhyce2nVAK/WXL.kLjQ45lkV02X/8g9.6SiC', user_email: 'alex@aol.com', role_id: 2},
 
-    {username: 'SuperUser', password: 'admin123', user_email: 'superuser@company.com', role_id: 3},
+    {username: 'demoTrainer', password: '$2a$08$oEuinZFfMxk9Z9Uwvjhyce2nVAK/WXL.kLjQ45lkV02X/8g9.6SiC', user_email: 'demoTrainer@aol.com', role_id: 2},
+
+    {username: 'SuperUser', password: '$2a$08$oEuinZFfMxk9Z9Uwvjhyce2nVAK/WXL.kLjQ45lkV02X/8g9.6SiC', user_email: 'superuser@company.com', role_id: 3},
+    //password demo123
 
 ]
 
