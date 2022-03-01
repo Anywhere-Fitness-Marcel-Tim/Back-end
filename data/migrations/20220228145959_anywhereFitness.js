@@ -33,9 +33,9 @@ exports.up = function(knex) {
     })
     .createTable('orders', orders => {
         orders.increments('order_id')
-        orders.string('order_content', 255)
-        orders.integer('order_quantity')
-        orders.float('order_price_total')
+        orders.string('order_content', 255).notNullable()
+        orders.integer('order_quantity').notNullable()
+        orders.float('order_price_total').notNullable()
         orders.integer('user_id')
         .unsigned()
         .notNullable()
@@ -43,6 +43,7 @@ exports.up = function(knex) {
         .inTable('users')
         .onUpdate('CASCADE')
         .onDelete('CASCADE')
+        orders.boolean('order_paid').defaultTo(false)
     })
     .createTable('class_organizer', table => {
         table.increments('class_organizer_id')

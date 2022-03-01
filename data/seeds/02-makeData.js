@@ -24,9 +24,9 @@ const users = [
 ]
 
 const orders = [
-    {order_content: 'Public_Training', order_quantity: 1, order_price_total: 24.95, user_id: 1},
-    {order_content: 'Private_Training', order_quantity: 1, order_price_total: 34.95, user_id: 3},
-    {order_content: 'Public_Training', order_quantity: 1, order_price_total: 15, user_id: 2},
+    {order_content: 'Public_Training', order_quantity: 1, order_price_total: 24.95, user_id: 1, order_paid: false},
+    {order_content: 'Private_Training', order_quantity: 1, order_price_total: 34.95, user_id: 3, order_paid: true},
+    {order_content: 'Public_Training', order_quantity: 1, order_price_total: 15, user_id: 2, order_paid: false},
 ]
 
 const class_organizer = [
