@@ -31,8 +31,7 @@ const checkUserPayload = async (req, res, next) => {
 
 const userModifiedSchema = yup.object({
     username: yup.string().trim().min(3).required(),
-    user_email: yup.string().email(),
-    role_id: yup.number().required()
+    user_email: yup.string().email()
 })
 
 const checkUserModifiedPayload = async (req, res, next) => {
