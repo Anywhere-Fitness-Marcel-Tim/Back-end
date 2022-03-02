@@ -11,7 +11,16 @@
     "rollback": "knex migrate:rollback",
     "seed": "knex seed:run",
     "cleanup": "knex seed:run --specific=01-cleanup.js",
-    "resetdb": "npm run rollback && npm run migrate && npm run seed"
+    "resetdb": "npm run rollback && npm run migrate && npm run seed",
+    "migrateh": "heroku run knex migrate:latest -a anywherefitness-back-end",
+    "rollbackh": "heroku run knex migrate:rollback -a anywherefitness-back-end",
+    "databaseh": "heroku pg:psql -a anywherefitness-back-end",
+    "seedh": "heroku run knex seed:run -a anywherefitness-back-end",
+    "deploy": "git push heroku main"
+  },
+  "engines":{
+    "node": "16.13.0",
+    "npm": "8.1.4"
   },
   "repository": {
     "type": "git",
