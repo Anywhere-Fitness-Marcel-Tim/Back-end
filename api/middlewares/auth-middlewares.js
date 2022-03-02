@@ -46,10 +46,12 @@ const restricted = (req, res, next) => {
     if(!req.body.role_id){
      req.role_id = 1
      next()
-    } else if(req.body.role_id === 3 || req.body.role_id === 2) {
-     next({status: 422, message: 'Users cannot set their own roles'})
+    // } else if(parseInt(req.body.role_id) === 3 || parseInt(req.body.role_id) === 2) {
+    //  next({status: 422, message: 'Users cannot set their own roles'})
     } else {
-      next()
+      // req.role_id = parseInt(req.body.role_id ?? 1)
+      // next()
+      next({status: 422, message: 'Users cannot set their own roles'})
     }
   }
 
