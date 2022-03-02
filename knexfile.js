@@ -20,7 +20,18 @@ module.exports = {
         connection: {filename: './data/anywhereFitness.db3'}
     },
     production: {
-        ...sharedConfig,
-        connection: process.env.DATABASE_URL
+        client: 'pg',
+        connection: process.env.DATABASE_URL,
+        migrations: {
+            directory: './data/migrations',
+        },
+    },
+    seeds:{
+        directory: './data/seeds',
+    },
+    pool: {
+        afterCreate: (conn, done) => {
+            conn.run('PRAGMA foreign_keys = ON', done)
+        },
     },
 }
