@@ -12,6 +12,7 @@ router.post("/register", validateRoleName, checkUserPayload, (req, res, next) =>
     const hash = bcrypt.hashSync(password, 8)
     userModel.add({username, password: hash, user_email, role_id})
     .then(newUser => {
+      console.log('Register',newUser)
       res.status(201).json(newUser)
     })
     .catch(next)
