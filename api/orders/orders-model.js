@@ -51,10 +51,28 @@ async function modify(id, modifiedOrder) {
 }
 
 async function add(order) {
-    const [id] = await db('orders')
+    await db('orders')
     .insert(order)
 
-    return findById(id)
+    const newOrder = await db('orders as or')
+    .join('users as us', 'or.user_id', 'us.user_id')
+    .select('or.order_id','us.username','us.user_email','or.order_content', 'or.order_quantity', 'or.order_price_total', 'or.order_paid')
+    .orderBy('order_id', 'desc')
+    .first()
+
+    if(newOrder && newOrder.order_paid === 0){
+        return {
+            ...newOrder,
+            order_paid: false
+        }
+    } else if(newOrder && newOrder.order_paid === 1){
+        return {
+            ...newOrder,
+            order_paid: true
+        }
+    }
+
+    return newOrder
 }
 
 async function remove(id){
