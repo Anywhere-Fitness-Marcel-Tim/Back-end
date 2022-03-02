@@ -1,3 +1,5 @@
+const pg = require('pg')
+
 const sharedConfig = {
     client: 'sqlite3',
     useNullAsDefault: true,
@@ -12,6 +14,10 @@ const sharedConfig = {
             conn.run('PRAGMA foreign_keys = ON', done)
         },
     },
+}
+
+if(process.env.DATABASE_URL){
+    pg.defaults.ssl = { rejectUnauthorized: false}
 }
 
 module.exports = {
