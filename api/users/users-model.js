@@ -22,10 +22,14 @@ function findById(id) {
 
 
 async function add(user) {
-    const id = await db('users')
+    await db('users')
     .insert(user)
 
-    return findById(id)
+    return db('users as u')
+    .join('roles as r','u.role_id', 'r.role_id')
+    .select('u.user_id','u.username', 'u.user_email', 'r.role_name')
+    .orderBy('u.user_id', 'desc')
+    .first()
 }
 
 async function modify(id, modifiedUser) {
