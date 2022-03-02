@@ -6,7 +6,7 @@ const bcrypt = require("bcryptjs");
 const userModel = require('../users/users-model');
 const jwt = require('jsonwebtoken')
 
-router.post("/register", validateRoleName, (req, res, next) => {
+router.post("/register", validateRoleName, checkUserPayload, (req, res, next) => {
     const { username, password, user_email } = req.body
     const { role_id } = req
     const hash = bcrypt.hashSync(password, 8)
