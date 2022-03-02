@@ -12,10 +12,12 @@ function findById(id) {
 
 
 async function add(session) {
-    const [id] = await db('classes')
+    await db('classes')
     .insert(session)
 
-    return findById(id)
+    return db('classes')
+    .orderBy('class_id', 'desc')
+    .first()
 }
 
 async function modify(id, modifiedClass) {
