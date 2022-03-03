@@ -35,8 +35,6 @@ describe("GET /api/users/1", () => {
             username: "vpupkin",
             role_name: "user",
         });
-        expect(res.body.id).toBeTruthy();
-        expect(res.body.password).toBeTruthy();
     });
 });
 
