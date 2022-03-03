@@ -38,16 +38,24 @@ describe("GET /api/users/1", () => {
     });
 });
 
-// describe("PUT /api/users/1", () => {
-//     it("updates user", async () => {
-//         const res = await request(server)
-//             .post("/api/auth/register")
-//             .send({ username: "fdudkin", password: "password :)" });
-//         expect(res.status).toBe(201);
-//         expect(res.body).toMatchObject({
-//             username: "fdudkin",
-//         });
-//         expect(res.body.id).toBeTruthy();
-//         expect(res.body.password).toBeTruthy();
-//     });
-// });
+describe("PUT /api/users/1", () => {
+    it("updates user", async () => {
+        const res = await request(server)
+            .put("/api/users/1")
+            .send({ username: "fdudkin", password: "password :)", role_name: "trainer" });
+        expect(res.body).toMatchObject({
+            username: "fdudkin",
+            role_name: "trainer"
+        });
+    });
+
+    it("works with GET", async () => {
+        const user = await request(server).get("/api/users/1");
+        user.body.role_name = "trainer"
+        const res = await request(server).put("/api/users/1").send(user.body);
+        expect(res.body).toMatchObject({
+            username: "vpupkin",
+            role_name: "trainer"
+        });
+    });
+});

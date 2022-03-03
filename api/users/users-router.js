@@ -29,9 +29,12 @@ router.put(
     checkUserExists,
     checkUserModifiedPayload,
     (req, res, next) => {
-        userModel.modify(req.params.id, req.body).then((updatedUser) => {
-            res.status(201).json(updatedUser);
-        });
+        userModel
+            .modify(req.params.id, req.body)
+            .then((updatedUser) => {
+                res.status(201).json(updatedUser);
+            })
+            .catch(next);
     }
 );
 

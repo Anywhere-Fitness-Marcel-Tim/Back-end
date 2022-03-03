@@ -1,4 +1,5 @@
 const userModel = require('../users/users-model')
+const roleModel = require('../roles/roles-model')
 const yup = require('yup')
 
 const checkUserExists = (req, res, next) => {
@@ -37,14 +38,21 @@ const checkUserPayload = (req,res,next) =>{
 
 const userModifiedSchema = yup.object({
     username: yup.string().trim().min(3).required(),
-    user_email: yup.string().email(),
-    role_id: yup.number()
+    user_email: yup.string().email().nullable(true),
+    role_name: yup.string().required(),
 })
 
 const checkUserModifiedPayload = async (req, res, next) => {
     try{
-        const validatedPayload = await userModifiedSchema.validate(req.body)
-        req.body = validatedPayload
+        let validatedPayload = await userModifiedSchema.validate(req.body)
+        const role = await roleModel.findByName(validatedPayload.role_name)
+        if (!role) {
+            next({ status: 400, message: "role not found" });
+            return
+        }
+
+        delete validatedPayload.role_name
+        req.body = {...validatedPayload, role_id: role.role_id}
         next()
     } catch(err){
         next(err)
