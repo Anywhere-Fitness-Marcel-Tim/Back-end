@@ -25,6 +25,10 @@ module.exports = {
         ...sharedConfig,
         connection: {filename: './data/anywhereFitness.db3'}
     },
+    testing: {
+        ...sharedConfig,
+        connection: {filename: './data/test.db3'}
+    },
     production: {
         client: 'pg',
         connection: process.env.DATABASE_URL,
