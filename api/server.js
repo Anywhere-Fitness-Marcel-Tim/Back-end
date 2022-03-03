@@ -20,6 +20,7 @@ server.use('/api/users', usersRouter)
 server.use('/api/classes', classRouter)
 server.use('/api/orders', orderRouter)
 
+// eslint-disable-next-line no-unused-vars
 server.use((err, req, res, next) => {
     res.status(err.status || 500).json({
         custom: 'The coding gods are mad',
