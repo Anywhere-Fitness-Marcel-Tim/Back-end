@@ -1,7 +1,7 @@
 # Deployments
 
-Back-end: https://anywherefitness-back-end.herokuapp.com/api/
-Front-end: https://anywhere-fitness-front-end-orcin.vercel.app/
+* Back-end: https://anywherefitness-back-end.herokuapp.com/api/
+* Front-end: https://anywhere-fitness-front-end-orcin.vercel.app/
 
 # Back-end
 
